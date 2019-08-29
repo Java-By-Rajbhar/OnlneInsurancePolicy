@@ -38,8 +38,10 @@ public class TrendServiceImpl implements TrendService {
 			TrendingResponseDTO trendOneByOne = new TrendingResponseDTO();
 
 			trendOneByOne.setCount(count2);
+
 			trendOneByOne.setPolicyName(policy.getPolicyName());
 			double percentage=((count2 / total) * 100);
+
 			trendOneByOne.setTotalCount(percentage);
 			trendsList.add(trendOneByOne);
 
