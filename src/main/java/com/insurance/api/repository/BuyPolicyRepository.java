@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import com.insurance.api.dto.SuggestionResponseDto;
 import com.insurance.api.entity.BuyPolicy;
 
 @Repository
@@ -19,6 +20,12 @@ public interface BuyPolicyRepository extends JpaRepository<BuyPolicy, Integer> {
 	
 
 	public BuyPolicy findByPolicyId(int id);
+	
+	@Query(value="select policy_id, count(policy_id) as count from inginsurance.buy_policy group by policy_id order by count(policy_id) desc limit 3",nativeQuery = true)
+	
+	public List<Integer[]>  findByBuyPolicy();
+
+
 
 	
 	

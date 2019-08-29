@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.insurance.api.dto.SuggestionResponseDto;
 import com.insurance.api.dto.TrendingResponseDTO;
 import com.insurance.api.service.TrendService;
 
@@ -24,8 +25,16 @@ public class TrendController {
 	TrendService trendService;
 	
 	@GetMapping("/trendDetails")
-	public ResponseEntity<List<TrendingResponseDTO>> getTrendingPolicies(){
+	public ResponseEntity<List<TrendingResponseDTO>> getTrendingPolicies() {
 		List<TrendingResponseDTO> policyLists = trendService.getTrendingPolicies();
-		return new ResponseEntity<>(policyLists,HttpStatus.OK);
+		return new ResponseEntity<>(policyLists, HttpStatus.OK);
 	}
+
+	@GetMapping("/suggestions")
+	
+	public ResponseEntity<List<SuggestionResponseDto>> getSuggestion() {
+		List<SuggestionResponseDto> suggestionLists = trendService.getAllSuggestion();
+		return new ResponseEntity<>(suggestionLists, HttpStatus.OK);
+	}
+
 }

@@ -1,10 +1,8 @@
-package com.insurance.api.entity;
+package com.insurance.api.dto;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,21 +11,19 @@ import lombok.Setter;
 
 /**
  * 
- * @author Sushil
+ * @author Laxman
  *
  */
-@Entity
-@Table
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Policy {
+public class FeatureDto {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int policyId;
-	private String policyName;
-	private String description;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int featureId;
+	private String featureName;
+	private String featureDescription;
 
 }

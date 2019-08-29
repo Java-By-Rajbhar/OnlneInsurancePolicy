@@ -13,7 +13,7 @@ import lombok.Setter;
 
 /**
  * 
- * @author Sushil
+ * @author Laxman
  *
  */
 @Entity
@@ -22,12 +22,13 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Policy {
+public class Feature {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int featureId;
 	private int policyId;
-	private String policyName;
-	private String description;
+	private String featureName;
+	private String featureDescription;
 
 }
