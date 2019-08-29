@@ -37,6 +37,7 @@ private static final Logger LOGGER = LoggerFactory.getLogger(PolicyController.cl
 		
 		
 		return new ResponseEntity<>(policyService.policyList(age),HttpStatus.OK);
+		
 	}
 
 }

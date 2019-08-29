@@ -45,7 +45,6 @@ public class PolicyServiceImpl implements PolicyService {
 				policyResponseDto.setEntryAge(entryAge);
 				policyResponseDto.setMaxMaturity(termAndCondition.getMaxMaturity());
 				policyResponseDto.setPolicyTerm(termAndCondition.getPolicyTerm());
-				/* BeanUtils.copyProperties(policy, policyResponseDto); */
 				listReponse.add(policyResponseDto);
 			}
 		}
@@ -68,7 +67,6 @@ public class PolicyServiceImpl implements PolicyService {
 				policyResponseDto.setEntryAge(entryAge);
 				policyResponseDto.setMaxMaturity(termAndCondition.getMaxMaturity());
 				policyResponseDto.setPolicyTerm(termAndCondition.getPolicyTerm());
-				/* BeanUtils.copyProperties(policy, policyResponseDto); */
 				listReponse.add(policyResponseDto);
 			
 			  }
