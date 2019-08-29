@@ -26,8 +26,7 @@ public class BuyServiceImpl implements BuyService {
 	@Autowired
 	PolicyHolderRepository PolicyHolderRepository;
 	
-	@Autowired
-	MailService mailservice;
+	
 	
 	
 	@Override
