@@ -10,7 +10,7 @@ import com.insurance.api.entity.Policy;
  *
  */
 @Repository
-public interface PolicyRepository extends JpaRepository<Policy, java.lang.Integer> {
+public interface PolicyRepository extends JpaRepository<Policy,Integer> {
 	
 	public Policy findByPolicyId(int policyId);
 
