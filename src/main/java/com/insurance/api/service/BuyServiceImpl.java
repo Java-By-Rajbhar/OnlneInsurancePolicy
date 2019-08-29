@@ -24,7 +24,6 @@ public class BuyServiceImpl implements BuyService {
 
 	@Autowired
 	PolicyHolderRepository PolicyHolderRepository;
-
 	@Override
 	public BuyPolicyResponseDto buyPolicy(BuyPolicyRequestDto buyPolicyRequestDto) {
 		BuyPolicyResponseDto buyPolicyResponseDto = new BuyPolicyResponseDto();
