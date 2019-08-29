@@ -25,16 +25,19 @@ import com.insurance.api.service.PolicyService;
 @RestController
 @CrossOrigin(allowedHeaders = { "*", "/" }, origins = { "*", "/" })
 public class PolicyController {
-private static final Logger LOGGER = LoggerFactory.getLogger(PolicyController.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(PolicyController.class);
+
 	@Autowired
 	PolicyService policyService;
 	
 	
 
 	@GetMapping("/policies/{age}")
+	
 	public ResponseEntity<List<PolicyResponseDto>> policies(@PathVariable int age)
 	{
-		
+
+	    LOGGER.info("inside policies");
 		
 		return new ResponseEntity<>(policyService.policyList(age),HttpStatus.OK);
 		

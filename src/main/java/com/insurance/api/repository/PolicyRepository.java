@@ -1,9 +1,6 @@
 package com.insurance.api.repository;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.insurance.api.entity.Policy;
@@ -17,9 +14,5 @@ import com.insurance.api.entity.Policy;
 public interface PolicyRepository extends JpaRepository<Policy, Integer> {
 
 	public Policy findByPolicyId(int policyId);
-	
-	
-	
-
 
 }
