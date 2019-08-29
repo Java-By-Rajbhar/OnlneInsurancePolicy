@@ -26,6 +26,8 @@ public class TrendController {
 	
 	@GetMapping("/trendDetails")
 	public ResponseEntity<List<TrendingResponseDTO>> getTrendingPolicies() {
+		 LOGGER.info("inside getTrendingPolicies");
+			
 		List<TrendingResponseDTO> policyLists = trendService.getTrendingPolicies();
 		return new ResponseEntity<>(policyLists, HttpStatus.OK);
 	}
