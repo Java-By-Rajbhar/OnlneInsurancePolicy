@@ -34,12 +34,14 @@ public class TrendServiceImpl implements TrendService {
 		for (Integer[] integers : count) {
 			int policyId = integers[0];
 			int count2 = (int) integers[1];
-			Policy Policy = policyRepository.findByPolicyId(policyId);
+			Policy policy = policyRepository.findByPolicyId(policyId);
 			TrendingResponseDTO trendOneByOne = new TrendingResponseDTO();
 
 			trendOneByOne.setCount(count2);
-			trendOneByOne.setPolicyName(Policy.getPolicyName());
-			double percentage=(count2 / total) * 100;
+
+			trendOneByOne.setPolicyName(policy.getPolicyName());
+			double percentage=((count2 / total) * 100);
+
 			trendOneByOne.setTotalCount(percentage);
 			trendsList.add(trendOneByOne);
 
@@ -52,19 +54,19 @@ public class TrendServiceImpl implements TrendService {
 
 		List<Integer[]> policyList = buyPolicyRepository.findByBuyPolicy();
 
-		List<SuggestionResponseDto> SuggestionResponseDtoList = new ArrayList<>();
+		List<SuggestionResponseDto> suggestionResponseDtoList = new ArrayList<>();
 		for (Integer[] integers : policyList) {
 			int policyId = integers[0];
-			Policy Policy = policyRepository.findByPolicyId(policyId);
+			Policy policy = policyRepository.findByPolicyId(policyId);
 			SuggestionResponseDto trendOneByOne = new SuggestionResponseDto();
 
-			trendOneByOne.setPolicyName(Policy.getPolicyName());
+			trendOneByOne.setPolicyName(policy.getPolicyName());
 
-			SuggestionResponseDtoList.add(trendOneByOne);
+			suggestionResponseDtoList.add(trendOneByOne);
 
 		}
 
-		return SuggestionResponseDtoList;
+		return suggestionResponseDtoList;
 	}
 
 }
