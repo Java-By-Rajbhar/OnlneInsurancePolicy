@@ -1,9 +1,5 @@
 package com.insurance.api.controller;
 
-import java.util.List;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,33 +9,23 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.insurance.api.dto.PolicyResponseDto;
-import com.insurance.api.service.PolicyService;
+import com.insurance.api.dto.PolicyDetailsDto;
+import com.insurance.api.service.PolicyDetailsService;
 
 /**
- * 
- * @author Sushil
+ * @author Laxman
  *
  */
 @RequestMapping("/api")
 @RestController
 @CrossOrigin(allowedHeaders = { "*", "/" }, origins = { "*", "/" })
-public class PolicyController {
-	
-private static final Logger LOGGER = LoggerFactory.getLogger(PolicyController.class);
+public class PolicyDetailController {
 
 	@Autowired
-	PolicyService policyService;
+	private PolicyDetailsService policyDetailsService;
 	
-	
-
-	@GetMapping("/policies/{age}")
-	public ResponseEntity<List<PolicyResponseDto>> policies(@PathVariable int age)
-	{
-		
-		
-		return new ResponseEntity<>(policyService.policyList(age),HttpStatus.OK);
-		
+	@GetMapping("/policy/{policyId}")
+	public ResponseEntity<PolicyDetailsDto> policyDetails(@PathVariable Integer policyId){
+		return new ResponseEntity<>(policyDetailsService.policyDetails(policyId), HttpStatus.OK);
 	}
-
 }

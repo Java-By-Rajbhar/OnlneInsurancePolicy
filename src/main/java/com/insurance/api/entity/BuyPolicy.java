@@ -15,6 +15,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 /**
  * 
  * @author Sushil
@@ -28,6 +29,8 @@ import lombok.Setter;
 @NoArgsConstructor
 public class BuyPolicy {
 
+
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int buyPolicyId;
@@ -36,3 +39,4 @@ public class BuyPolicy {
 	@Temporal(TemporalType.DATE)
 	private Date purchaseDate;
 }
+
