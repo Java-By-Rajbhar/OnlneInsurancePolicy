@@ -32,9 +32,9 @@ public class TrendServiceImpl implements TrendService {
 		int total=buyPolicyRepository.getTotalCount();
 		LOGGER.info("totalcount ={}",total);
 		for (Integer[] integers : count) {
-			int id = integers[0];
+			int policyId = integers[0];
 			int count2 = (int) integers[1];
-			Policy Policy = policyRepository.findByPolicyId(id);
+			Policy Policy = policyRepository.findByPolicyId(policyId);
 			TrendingResponseDTO trendOneByOne = new TrendingResponseDTO();
 
 			trendOneByOne.setCount(count2);

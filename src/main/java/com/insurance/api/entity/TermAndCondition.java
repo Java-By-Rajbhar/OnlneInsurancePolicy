@@ -28,16 +28,15 @@ public class TermAndCondition {
 	private int minEntryAge; 
 	private String minPurchasePrice ;
 	private String maxPurchasePrice; 
-	private String modeOfAnuityPayment; 
 	private String taxBenifits; 
 	private String loanFacility; 
 	private String policyTerm ;
-	private String modesOfPremimumPayment; 
-	private String policyRevival; 
-	private String gracePeriod; 
 	private String maxMaturity; 
-	private String ageofPolicyMaturity; 
 
 
 
 }
+
+
+
+
