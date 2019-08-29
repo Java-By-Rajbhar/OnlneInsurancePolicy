@@ -19,11 +19,11 @@ import com.insurance.api.service.TrendService;
 @RestController
 @CrossOrigin(allowedHeaders = { "*", "/" }, origins = { "*", "/" })
 public class TrendController {
-private static final Logger LOGGER = LoggerFactory.getLogger(TrendController.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(TrendController.class);
 	@Autowired
 	TrendService trendService;
 	
-	@GetMapping("/trends")
+	@GetMapping("/trendDetails")
 	public ResponseEntity<List<TrendingResponseDTO>> getTrendingPolicies(){
 		List<TrendingResponseDTO> policyLists = trendService.getTrendingPolicies();
 		return new ResponseEntity<>(policyLists,HttpStatus.OK);

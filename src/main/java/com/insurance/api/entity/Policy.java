@@ -29,5 +29,5 @@ public class Policy {
 	private int policyId;
 	private String policyName;
 	private String description;
-	private String feature;
+	
 }

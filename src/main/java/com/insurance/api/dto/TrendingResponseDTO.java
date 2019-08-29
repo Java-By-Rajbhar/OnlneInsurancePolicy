@@ -8,6 +8,7 @@ import lombok.Setter;
 public class TrendingResponseDTO {
 	private String policyName; 
 	private int count;
-	private int percentage;
+	private double totalCount;
+	
 
 }

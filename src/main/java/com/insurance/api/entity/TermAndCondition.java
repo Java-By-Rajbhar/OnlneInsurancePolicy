@@ -24,7 +24,8 @@ public class TermAndCondition {
 	private int termConditionId; 
 	private int policyId; 
 	private String sumAssured; 
-	private String entryAge; 
+	private int maxEntryAge; 
+	private int minEntryAge; 
 	private String minPurchasePrice ;
 	private String maxPurchasePrice; 
 	private String modeOfAnuityPayment; 
