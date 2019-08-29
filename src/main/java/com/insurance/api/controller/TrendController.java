@@ -9,35 +9,23 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.insurance.api.dto.PolicyResponseDto;
-import com.insurance.api.service.PolicyService;
+import com.insurance.api.dto.TrendingResponseDTO;
+import com.insurance.api.service.TrendService;
 
-/**
- * 
- * @author Sushil
- *
- */
 @RequestMapping("/api")
 @RestController
 @CrossOrigin(allowedHeaders = { "*", "/" }, origins = { "*", "/" })
-public class PolicyController {
-private static final Logger LOGGER = LoggerFactory.getLogger(PolicyController.class);
+public class TrendController {
+	private static final Logger LOGGER = LoggerFactory.getLogger(TrendController.class);
 	@Autowired
-	PolicyService policyService;
+	TrendService trendService;
 	
-	
-
-	@GetMapping("/policies/{age}")
-	public ResponseEntity<List<PolicyResponseDto>> policies(@PathVariable int age)
-	{
-		
-		
-		return new ResponseEntity<>(policyService.policyList(age),HttpStatus.OK);
-		
+	@GetMapping("/trendDetails")
+	public ResponseEntity<List<TrendingResponseDTO>> getTrendingPolicies(){
+		List<TrendingResponseDTO> policyLists = trendService.getTrendingPolicies();
+		return new ResponseEntity<>(policyLists,HttpStatus.OK);
 	}
-
 }

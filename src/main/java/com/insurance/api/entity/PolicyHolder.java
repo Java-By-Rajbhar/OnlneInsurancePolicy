@@ -22,12 +22,16 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Policy {
-
+public class PolicyHolder {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int policyId;
-	private String policyName;
-	private String description;
+	private int customerId;
+	private String name;
+	private String emailId;
+	private int age;
+	private String gender;
+	private int empId;
+	private String relationship;
 
 }

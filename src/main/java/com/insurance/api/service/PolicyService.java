@@ -12,5 +12,5 @@ import com.insurance.api.dto.PolicyResponseDto;
 public interface PolicyService {
 
 	public List<PolicyResponseDto> policyList(int age);
-	
+
 }
