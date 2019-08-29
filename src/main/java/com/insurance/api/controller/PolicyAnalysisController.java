@@ -32,7 +32,7 @@ public class PolicyAnalysisController {
 	public ResponseEntity<PolicyAnalysisResponseDto> analysis(){
 		LOGGER.info("Inside analysis method of PolicyAnalysisController class");
 		PolicyAnalysisResponseDto response = buyPolicyService.analysis();
-		return new ResponseEntity<PolicyAnalysisResponseDto>(response, HttpStatus.OK);
+		return new ResponseEntity<>(response, HttpStatus.OK);
 		
 	}
 
