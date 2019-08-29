@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.insurance.api.controller.TrendController;
+import com.insurance.api.dto.SuggestionResponseDto;
 import com.insurance.api.dto.TrendingResponseDTO;
 import com.insurance.api.entity.Policy;
 import com.insurance.api.repository.BuyPolicyRepository;
@@ -27,10 +28,9 @@ public class TrendServiceImpl implements TrendService {
 		List<TrendingResponseDTO> trendsList = new ArrayList<>();
 
 		List<Integer[]> count = buyPolicyRepository.getPolicyNameAndCount();
-	
-	
-		int total=buyPolicyRepository.getTotalCount();
-		LOGGER.info("totalcount ={}",total);
+
+		int total = buyPolicyRepository.getTotalCount();
+		LOGGER.info("totalcount ={}", total);
 		for (Integer[] integers : count) {
 			int policyId = integers[0];
 			int count2 = (int) integers[1];
@@ -39,15 +39,35 @@ public class TrendServiceImpl implements TrendService {
 
 			trendOneByOne.setCount(count2);
 			trendOneByOne.setPolicyName(Policy.getPolicyName());
-			trendOneByOne.setTotalCount(total);
-			double percenatage=(100/total);
-					double totalpercent= count2*percenatage;
-					LOGGER.info("totalpercent ={}",totalpercent);
+
+			double percenatage = (100 / total) * 100;
+
+			LOGGER.info("totalpercent ={}", percenatage);
+			trendOneByOne.setTotalCount(percenatage);
 			trendsList.add(trendOneByOne);
 
 		}
 
 		return trendsList;
+	}
+
+	public List<SuggestionResponseDto> getAllSuggestion() {
+
+		List<Integer[]> policyList = buyPolicyRepository.findByBuyPolicy();
+
+		List<SuggestionResponseDto> SuggestionResponseDtoList = new ArrayList<>();
+		for (Integer[] integers : policyList) {
+			int policyId = integers[0];
+			Policy Policy = policyRepository.findByPolicyId(policyId);
+			SuggestionResponseDto trendOneByOne = new SuggestionResponseDto();
+
+			trendOneByOne.setPolicyName(Policy.getPolicyName());
+
+			SuggestionResponseDtoList.add(trendOneByOne);
+
+		}
+
+		return SuggestionResponseDtoList;
 	}
 
 }

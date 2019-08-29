@@ -25,7 +25,7 @@ import lombok.Setter;
 public class Policy {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int policyId;
 	private String policyName;
 	private String description;
